@@ -193,7 +193,7 @@ struct CodeFileView: View {
                 layout: .init(
                     editorOverscroll: overscroll.overscrollPercentage,
                     contentInsets: edgeInsets.nsEdgeInsets,
-                    additionalTextInsets: NSEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+                    additionalTextInsets: NSEdgeInsets(top: 2, left: 0, bottom: 5, right: 0)
                 ),
                 peripherals: .init(
                     showGutter: showGutter,

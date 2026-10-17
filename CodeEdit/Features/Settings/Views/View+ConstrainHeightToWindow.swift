@@ -32,7 +32,7 @@ struct ConstrainHeightToWindowViewModifier: ViewModifier {
         content
             .frame(height: height-100)
             .onReceive(NSApp.settingsWindow!.publisher(for: \.frame)) { newValue in
-                height = newValue.height
+                DispatchQueue.main.async { height = newValue.height }
             }
     }
 }

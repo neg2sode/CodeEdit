@@ -166,15 +166,17 @@ private extension ThemeSettingsView {
             isOn: $settings.matchAppearance
         )
         .onChange(of: settings.matchAppearance) { _, value in
-            if value {
-                if colorScheme == .dark {
-                    themeModel.selectedTheme = themeModel.selectedDarkTheme
+            DispatchQueue.main.async {
+                if value {
+                    if colorScheme == .dark {
+                        themeModel.selectedTheme = themeModel.selectedDarkTheme
+                    } else {
+                        themeModel.selectedTheme = themeModel.selectedLightTheme
+                    }
                 } else {
-                    themeModel.selectedTheme = themeModel.selectedLightTheme
-                }
-            } else {
-                themeModel.selectedTheme = themeModel.themes.first {
-                    $0.name == settings.selectedTheme
+                    themeModel.selectedTheme = themeModel.themes.first {
+                        $0.name == settings.selectedTheme
+                    }
                 }
             }
         }

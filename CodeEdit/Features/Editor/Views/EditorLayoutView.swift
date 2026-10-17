@@ -31,11 +31,11 @@ struct EditorLayoutView: View {
                         switch isAtEdge {
                         case .all:
                             insets.top += toolbarHeight
-                            insets.bottom += StatusBarView.height + 5
+                            insets.bottom += StatusBarView.height
                         case .top:
                             insets.top += toolbarHeight
                         case .bottom:
-                            insets.bottom += StatusBarView.height + 5
+                            insets.bottom += StatusBarView.height
                         default:
                             return
                         }

@@ -37,8 +37,8 @@ private struct NewListTableItemView<HeaderView: View>: View {
         headerView: HeaderView? = nil,
         completion: @escaping (String, String) -> Void
     ) {
-        self.key = key ?? ""
-        self.value = value ?? ""
+        _key = State(initialValue: key ?? "")
+        _value = State(initialValue: value ?? "")
         self.keyColumnName = keyColumnName
         self.valueColumnName = valueColumnName
         self.newItemInstruction = newItemInstruction

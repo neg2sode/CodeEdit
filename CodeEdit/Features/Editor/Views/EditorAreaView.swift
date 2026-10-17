@@ -33,6 +33,12 @@ struct EditorAreaView: View {
     @Environment(\.isEditorLayoutAtEdge)
     private var isAtEdge
 
+    /// Where the tab/jump-bar inset ends, measured from the top of this editor area: the top safe area (the window
+    /// toolbar) plus the inset's height, spacers and dividers included, both as SwiftUI lays the header out. The
+    /// editor is inset by exactly this much, so a line scrolled to the top edge sits flush against the header.
+    /// `nil` until laid out.
+    @State private var headerBottom: CGFloat?
+
     init(editor: Editor, focus: FocusState<Editor?>.Binding) {
         self.editor = editor
         self._focus = focus
@@ -62,7 +68,11 @@ struct EditorAreaView: View {
                     EditorAreaFileView(editorInstance: selected, codeFile: codeFile)
                         .focusedObject(editor)
                         .transformEnvironment(\.edgeInsets) { insets in
-                            insets.top += editorInsetAmount
+                            if let headerBottom {
+                                insets.top = headerBottom
+                            } else {
+                                insets.top += editorInsetAmount
+                            }
                         }
                         .opacity(dimEditorsWithoutFocus && editor != editorManager.activeEditor ? 0.5 : 1)
                         .onDrop(of: [.fileURL], isTargeted: nil) { providers in
@@ -141,6 +151,11 @@ struct EditorAreaView: View {
                     // On Tahoe we only show one divider
                     if #available(macOS 26, *), shouldShowTabBar || showEditorJumpBar {
                         Divider()
+                    }
+                }
+                .onGeometryChange(for: CGFloat.self, of: { $0.safeAreaInsets.top + $0.size.height }) { newValue in
+                    if headerBottom != newValue {
+                        headerBottom = newValue
                     }
                 }
                 .environment(\.isActiveEditor, editor == editorManager.activeEditor)
