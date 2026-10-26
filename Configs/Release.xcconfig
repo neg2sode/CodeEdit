@@ -11,3 +11,5 @@
 CE_APPICON_NAME = AppIcon
 // CE_VERSION_POSTFIX = // this is a placeholder since we don't want a postfix in final release
 CE_COPYRIGHT = Copyright © 2022-2025 CodeEdit
+
+CE_ENTITLEMENTS = CodeEdit/CodeEdit.entitlements

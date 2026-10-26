@@ -18,6 +18,16 @@ struct EditorTabsOverflowShadow: View {
     @Environment(\.controlActiveState)
     private var activeState
 
+    // Resolve the shadow opacity into an explicit Double. Passing the nested ternary
+    // directly to `.opacity(...)` is ambiguous under the macOS 27 SDK / Swift 6.4
+    // ("ambiguous use of 'opacity'"); this binding keeps identical behaviour.
+    private var shadowOpacity: Double {
+        if colorScheme == .dark {
+            return activeState == .inactive ? 0.25882353 : 1
+        }
+        return activeState == .inactive ? 0.09803922 : 0.25882353
+    }
+
     var body: some View {
         Rectangle()
             .frame(maxHeight: .infinity)
@@ -35,11 +45,7 @@ struct EditorTabsOverflowShadow: View {
                     startPoint: startPoint,
                     endPoint: endPoint
                 )
-                .opacity(
-                    colorScheme == .dark
-                    ? activeState == .inactive ? 0.25882353 : 1
-                    : activeState == .inactive ? 0.09803922 : 0.25882353
-                )
+                .opacity(shadowOpacity)
             )
             .allowsHitTesting(false)
     }

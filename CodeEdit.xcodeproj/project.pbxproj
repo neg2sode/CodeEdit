@@ -665,7 +665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "${CE_APPICON_NAME}";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CodeEdit/CodeEdit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "$(CE_ENTITLEMENTS)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -866,7 +866,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "${CE_APPICON_NAME}";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CodeEdit/CodeEdit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "$(CE_ENTITLEMENTS)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -1066,7 +1066,7 @@
 		8B9A0E112B9FE7D7007E2DBF /* Pre */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = B624544F2D78A3D3009A86D1 /* Configs */;
-			baseConfigurationReferenceRelativePath = Alpha.xcconfig;
+			baseConfigurationReferenceRelativePath = Pre.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1134,12 +1134,12 @@
 		8B9A0E122B9FE7D7007E2DBF /* Pre */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = B624544F2D78A3D3009A86D1 /* Configs */;
-			baseConfigurationReferenceRelativePath = Alpha.xcconfig;
+			baseConfigurationReferenceRelativePath = Pre.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "${CE_APPICON_NAME}";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CE_APPICON_NAME = AppIconPre;
-				CODE_SIGN_ENTITLEMENTS = CodeEdit/CodeEdit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "$(CE_ENTITLEMENTS)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -1148,7 +1148,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CodeEdit/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				ENABLE_APP_SANDBOX = YES;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -1179,7 +1179,7 @@
 		8B9A0E132B9FE7D7007E2DBF /* Pre */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = B624544F2D78A3D3009A86D1 /* Configs */;
-			baseConfigurationReferenceRelativePath = Alpha.xcconfig;
+			baseConfigurationReferenceRelativePath = Pre.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1206,7 +1206,7 @@
 		8B9A0E142B9FE7D7007E2DBF /* Pre */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = B624544F2D78A3D3009A86D1 /* Configs */;
-			baseConfigurationReferenceRelativePath = Alpha.xcconfig;
+			baseConfigurationReferenceRelativePath = Pre.xcconfig;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
@@ -1234,7 +1234,7 @@
 		8B9A0E152B9FE7D7007E2DBF /* Pre */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = B624544F2D78A3D3009A86D1 /* Configs */;
-			baseConfigurationReferenceRelativePath = Alpha.xcconfig;
+			baseConfigurationReferenceRelativePath = Pre.xcconfig;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OpenWithCodeEdit/OpenWithCodeEdit.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -1412,7 +1412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "${CE_APPICON_NAME}";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CodeEdit/CodeEdit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "$(CE_ENTITLEMENTS)";
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1456,7 +1456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "${CE_APPICON_NAME}";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CodeEdit/CodeEdit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "$(CE_ENTITLEMENTS)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;

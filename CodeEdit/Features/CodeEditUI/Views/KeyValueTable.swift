@@ -37,8 +37,11 @@ private struct NewListTableItemView<HeaderView: View>: View {
         headerView: HeaderView? = nil,
         completion: @escaping (String, String) -> Void
     ) {
-        self.key = key ?? ""
-        self.value = value ?? ""
+        // Write through the @State backing storage. Assigning via `self.key` is a
+        // no-op for a @State property and Swift 6.4 rejects it here as a use of
+        // `self` before `keyColumnName`/`valueColumnName` are initialized.
+        _key = State(initialValue: key ?? "")
+        _value = State(initialValue: value ?? "")
         self.keyColumnName = keyColumnName
         self.valueColumnName = valueColumnName
         self.newItemInstruction = newItemInstruction

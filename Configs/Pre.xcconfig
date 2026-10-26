@@ -11,3 +11,18 @@
 CE_APPICON_NAME = AppIconPre
 CE_VERSION_POSTFIX = -pre
 CE_COPYRIGHT = Copyright © 2022-2025 CodeEdit
+
+// ---------------------------------------------------------------------------
+// Nightly-only build settings (Pre configuration).
+//
+// 1. Use the non-sandboxed entitlements. The App Sandbox makes the integrated
+//    terminal unusable: zsh cannot read ~/.zprofile, cannot setpgid() for job
+//    control, cannot lock ~/.zsh_history, and subprocesses such as `xcrun`
+//    refuse to run at all. Alpha/Beta/Release keep the sandbox.
+// 2. ENABLE_APP_SANDBOX is set to NO directly in the project's Pre build
+//    configuration: it is a special Xcode setting whose project-level value takes
+//    precedence over xcconfig, and it injects the app-sandbox entitlement
+//    independently of the entitlements file.
+// ---------------------------------------------------------------------------
+CE_ENTITLEMENTS = CodeEdit/CodeEdit-nightly.entitlements
+
