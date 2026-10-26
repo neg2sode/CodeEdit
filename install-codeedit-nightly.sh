@@ -13,9 +13,9 @@
 set -euo pipefail
 
 REPO="neg2sode/CodeEdit"
-TAG="nightly-0.3.6-pre.47"
+TAG="nightly-0.3.6-pre.47.2"
 ASSET="CodeEdit-0.3.6-pre.47-fa2aebd.dmg"
-CHECKSUM="ec8148b9f77140454e2967971f72f295e37218174efdfef1cb7ac6f1a6c358ba"
+CHECKSUM="8f9293851710f8cde81a2776cb6fe8e7cda86c0e0259f096089f71527b8aec67"
 APP="CodeEdit.app"
 DEST="/Applications/$APP"
 

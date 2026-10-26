@@ -15,7 +15,7 @@ defects and the missing app icon fixed and verified.
 | Architectures | `arm64` + `x86_64` (universal) |
 | Toolchain | Xcode 27.0 (27A266a) · Swift 6.4 · macOS 27.2 (26B5101f) |
 | Signature | ad-hoc (`Signature=adhoc`), hardened runtime, **not notarized** |
-| DMG SHA-256 | `ec8148b9f77140454e2967971f72f295e37218174efdfef1cb7ac6f1a6c358ba` |
+| DMG SHA-256 | `8f9293851710f8cde81a2776cb6fe8e7cda86c0e0259f096089f71527b8aec67` |
 
 ## Where the artifact lives
 
@@ -177,6 +177,28 @@ The plugin ships a documented opt-out that it honours before building any comman
 (`SwiftLintPlugin/Plugins/SwiftLint/main.swift:32`, `DISABLE_SWIFTLINT`), so
 `DISABLE_SWIFTLINT=1` was used. Linting is diagnostics-only and has **no effect on the shipped
 binary**; upstream CI runs it separately via `.github/workflows/lint.yml`.
+
+### 7. About window presented the fork as upstream CodeEdit
+
+The About window showed only "Version 0.3.6-pre (47)" and a footer linking to
+`CodeEditApp/CodeEdit` — with no indication that this is an unofficial fork running a nightly.
+Anyone hitting a bug would reasonably have reported it upstream.
+
+A `CE_BUILD_IDENTITY` / `CE_BUILD_IDENTITY_URL` pair is now set in `Configs/Pre.xcconfig` only
+(empty in `Alpha`/`Beta`/`Release`, so official builds are unchanged and simply omit the line).
+The About footer renders:
+
+```
+Unofficial nightly build · MIT License
+Copyright © 2022-2025 CodeEdit
+```
+
+with the first entry linking to these build notes. The upstream copyright and licence stay
+untouched — this only adds provenance.
+
+Implementation note: a URL cannot be written literally in an xcconfig, because `//` starts a
+comment. The scheme separator is assembled from a variable (`CE_SLASHES = /`) so the value
+resolves to a full `https://…` URL.
 
 ## Verification performed
 

@@ -4,6 +4,10 @@
 <dict>
 	<key>CE_VERSION_POSTFIX</key>
 	<string>${CE_VERSION_POSTFIX}</string>
+	<key>CE_BUILD_IDENTITY</key>
+	<string>${CE_BUILD_IDENTITY}</string>
+	<key>CE_BUILD_IDENTITY_URL</key>
+	<string>${CE_BUILD_IDENTITY_URL}</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDocumentTypes</key>

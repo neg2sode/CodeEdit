@@ -26,3 +26,11 @@ CE_COPYRIGHT = Copyright © 2022-2025 CodeEdit
 // ---------------------------------------------------------------------------
 CE_ENTITLEMENTS = CodeEdit/CodeEdit-nightly.entitlements
 
+
+// Shown in the About window and Welcome screen. Empty in Alpha/Beta/Release,
+// so those configurations present as ordinary (non-nightly) builds.
+CE_BUILD_IDENTITY = Unofficial nightly build
+// NOTE: xcconfig treats "//" as a comment start, so a URL cannot be written
+// literally. Assemble the scheme separator from a variable instead.
+CE_SLASHES = /
+CE_BUILD_IDENTITY_URL = https:$(CE_SLASHES)/github.com/neg2sode/CodeEdit/blob/main/BUILD-NOTES.md
